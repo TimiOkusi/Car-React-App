@@ -13,6 +13,7 @@ import toyotaLogo from "/workspaces/Car-React-App/src/assets/toyotaLogo.png";
 import lamborghiniLogo from "/workspaces/Car-React-App/src/assets/lamborghiniLogo.png";
 import bugattiLogo from "/workspaces/Car-React-App/src/assets/bugattiLogo.png";
 import { getCarData } from "../api/actions";
+import carIcon from "/workspaces/Car-React-App/src/assets/carFront.png"
 
 const CarCard: React.FC = () => {
   const [data, setData] = useState<CarsData>();
@@ -57,8 +58,13 @@ const CarCard: React.FC = () => {
   };
 
   return (
-    <Card className="max-w-[400px] items-center">
-      <CardHeader className="flex gap-3">
+    <Card className="min-w-[300px] max-w-[700px] items-center px-6">
+      <CardHeader className="flex flex-col items-center">
+      <img
+        src={carIcon}
+        className="w-12 my-2 text-primary transform scale-x-[-1]"
+        style={{ transformOrigin: 'center' }}
+      />
         <form
           onSubmit={(e) => {
             e.preventDefault();
@@ -95,8 +101,7 @@ const CarCard: React.FC = () => {
               alt={`${data.manufacturer} logo`}
               className="w-40 h-40 mb-4"
             />
-            <h1 className="text-3xl font-bold">{data.manufacturer}</h1>
-            <p className="text-3xl font-bold">{data.model}</p>
+            <h1 className="text-3xl font-bold">{data.manufacturer} - {data.model}</h1>
             <p className="text-lg">Year: {data.year}</p>
             <p className="text-lg">Color: {data.color} </p>
             <p className="text-lg">Fuel Type: {data.fuelType}</p>

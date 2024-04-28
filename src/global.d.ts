@@ -6,6 +6,13 @@ interface WeatherData {
   rain: number;
 }
 
+
+interface WeatherDailyData {
+  dayOne: number;
+  dayTwo: number;
+  dayThree: number;
+}
+
 interface CarsData{
   manufacturer: string;  // The manufacturer of the car
   model: string;         // The model of the car
